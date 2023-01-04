@@ -1,8 +1,16 @@
-const http = require('http');
-const app = require('./app')
-const server = http.createServer(app);
+const express = require('express');
+const bodyParser = require("body-parser");
+const app = express();
 
-require('./db/config')
+// Middlewares
+app.use(express.json());
+// app.use(bodyParser.json()); // Parse requests of content-type: application/json
+// app.use(bodyParser.urlencoded({ extended: true })); // Parse requests of content-type: application/x-www-form-urlencoded
 
-server.listen(5000);
-console.log('Node.js web server at port 5000 is running..')
+const db = require('./db/db')
+
+// Routes
+app.use('/models', require('./routes/modelsRoutes'));
+
+const PORT = 5000
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
