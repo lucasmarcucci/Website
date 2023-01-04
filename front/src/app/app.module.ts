@@ -8,6 +8,8 @@ import { RegisterComponent } from './register/register.component';
 import { EditProcedeComponent } from './edit-procede/edit-procede.component';
 import { EditFreezbeComponent } from './edit-freezbe/edit-freezbe.component';
 import { EditIngredientComponent } from './edit-ingredient/edit-ingredient.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ListComponent } from './list/list.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,14 @@ import { EditIngredientComponent } from './edit-ingredient/edit-ingredient.compo
     RegisterComponent,
     EditProcedeComponent,
     EditFreezbeComponent,
-    EditIngredientComponent
+    EditIngredientComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
