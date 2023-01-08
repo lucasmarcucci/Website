@@ -25,6 +25,13 @@ async function getById(id) {
 
 async function create(params) {
 
+    const model = new db.Models(params);
+    await model.create(
+        { model_name: params.name, model_description: params.description }, 
+        { attributes: ['model_id', 'model_name', 'model_description'] }
+    );
+    return 'Model created'
+
     // if (await db.Models.findOne({ 
     //         where: { model_name: params.name } 
     //     })) {
@@ -35,9 +42,4 @@ async function create(params) {
     // await model.save({ 
     //     attributes: ['model_id', 'model_name', 'model_description'] 
     // });
-    const model = new db.Models(params);
-    await model.create(
-        { model_name: params.name, model_description: params.description }, 
-        { attributes: ['model_id', 'model_name', 'model_description'] }
-    );
 }

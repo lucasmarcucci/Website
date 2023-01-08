@@ -1,47 +1,50 @@
-const model = require('../models2/models')
+// const model = require('../models2/models')
 
-exports.findAll = async (req, res, next) => {
-    model.getAll()
-        .then(models => res.json(models))
-        .catch(next);
-    // res.send("Find All")
-}
+// exports.findAll = async (req, res, next) => {
+//     model.getAll()
+//         .then(models => res.json(models))
+//         .catch(next);
+//     // res.send("Find All")
+// }
 
-exports.create = async (req, res, next) => {
+// exports.create = async (req, res, next) => {
 
-    model.create(req.body)
-        .then(() => res.json({ message: 'Model created' }))
-        .catch(next);
+//     // console.log(req)
 
-    // Validate request
-    // if (!req.body) {
-    //     res.status(400).send({
-    //     message: "Content can not be empty!"
-    //     });
-    // }
+//     // model.create(req)
+//         // .then(() => res.json({ message: 'Model created' }))
+//         // .then(() => console.log(res))
+//         // .catch(next);
 
-    // console.log(req.body)
+//     // Validate request
+//     // if (!req.body) {
+//     //     res.status(400).send({
+//     //     message: "Content can not be empty!"
+//     //     });
+//     // }
 
-    // const model = {
-    //     description: "The model",
-    //     name: req.body.name,
-    //     price: req.body.price
-    // };
+//     // console.log(req.body)
 
-    // res.send(model)
-}
+//     // const model = {
+//     //     description: "The model",
+//     //     name: req.body.name,
+//     //     price: req.body.price
+//     // };
 
-exports.update = async (req, res, next) => {
-    res.send("Update")
-}
+//     // res.send(model)
+// }
 
-exports.findOne = async (req, res, next) => {
-    model.getById(req.params.id)
-        .then(model => res.json(model))
-        .catch(next);
-    // res.send("Find One")
-}
+// exports.update = async (req, res, next) => {
+//     res.send("Update")
+// }
 
-exports.delete = async (req, res, next) => {
-    res.send("Delete")
-}
+// exports.findOne = async (req, res, next) => {
+//     model.getById(req.params.id)
+//         .then(model => res.json(model))
+//         .catch(next);
+//     // res.send("Find One")
+// }
+
+// exports.delete = async (req, res, next) => {
+//     res.send("Delete")
+// }

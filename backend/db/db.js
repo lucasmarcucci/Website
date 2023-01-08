@@ -14,7 +14,15 @@ async function initialize() {
     // const { userName, password } = dbConfig.authentication.options;
 
     // connect to db
-    const sequelize = new Sequelize(dbName, userName, password, { host, dialect });
+    const sequelize = new Sequelize(
+        dbName, 
+        userName, 
+        password, 
+        { 
+            host, 
+            dialect 
+        }
+    );
 
     // init models and add them to the exported db object
     db.Models = require('../models/models')(sequelize);

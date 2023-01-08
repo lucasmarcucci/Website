@@ -1,12 +1,24 @@
 const express = require('express');
 const router = express.Router();
-const modelsController = require('../controllers/modelsController')
+
+const bodyParser = require('body-parser');
+const jsonParser = bodyParser.json();
+
+const modelsController = require('../controllers/modelsController');
 
 // Get all models
 router.get('/', modelsController.findAll)
 
 // Create a model
-router.post('/', modelsController.create)
+// router.post('/', modelsController.create())
+// router.post('/', jsonParser, (req, res) => {
+//     modelsController.create(req.body)
+// })
+router.post('/', (req, res) => {
+    const data = req.body
+    console.log(data)
+    modelsController.create(data)
+})
 
 // Get a model
 router.get('/:id', modelsController.findOne)
