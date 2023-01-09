@@ -1,10 +1,12 @@
 const Model = require('../models/models');
+const { v4: uuidv4 } = require('uuid');
 
 exports.create = async (req, res, next) => {
   console.log(req.body);
 
   Model.create({
-    id: req.body.id,
+    // id: req.body.id,
+    id: uuidv4(),
     model_name: req.body.name,
     model_description: req.body.description,
   })

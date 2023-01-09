@@ -14,7 +14,6 @@
                 <router-link to="/signup"><li class="nav-item bold nav-link">Sign Up</li></router-link>
                 <router-link to="/signin"><li class="nav-item bold nav-link">Sign In</li></router-link>
                 <router-link to="/createmodel"><li class="nav-item bold nav-link">Create Model</li></router-link>
-                <router-link to="/about"><li class="nav-item bold nav-link">About</li></router-link>
             </ul>
         </header>
     </div>

@@ -11,10 +11,10 @@
                 <textarea class="form-control model--description" id="floatingTextArea" rows="8" v-model="description"></textarea>
                 <label for="floatingTextArea">Description</label>
             </div>
-            <div class="form-floating">
+            <!-- <div class="form-floating">
                 <input type="number" class="form-control" id="floatingPuht" placeholder="12" v-model="puht">
                 <label for="floatingPuht">pUHT</label>
-            </div>
+            </div> -->
 
             <button class="w-100 btn btn-lg mt-3 btn-primary" id="createmodel_submit" type="submit">Create</button>
         </form>
@@ -30,7 +30,7 @@ export default {
         return {
             name: null,
             description: null,
-            puht: null,
+            // puht: null,
         }
     },
     methods: {
@@ -38,7 +38,7 @@ export default {
             const data = {
                 name: this.name,
                 description: this.description,
-                puht: this.puht
+                // puht: this.puht
             }
 
             axios.post("http://localhost:5000/models", data)
