@@ -1,35 +1,22 @@
-const { DataTypes } = require('sequelize');
+const Sequelize = require('sequelize');
+const sequelize = require('../db/db2');
 
-module.exports = model;
-
-function model(sequelize) {
-    const attributes = {
-        model_id: { 
-            type: DataTypes.STRING, 
-            allowNull: false, 
-            primaryKey: true, 
-            autoIncrement: true, 
+const Model = sequelize.define('Models', 
+    {
+        id: {
+            primaryKey: true,
+            type: Sequelize.INTEGER,
         },
-        model_name: { 
-            type: DataTypes.STRING, 
-            allowNull: false 
+        model_name: {
+            type: Sequelize.STRING
         },
-        model_description: { 
-            type: DataTypes.STRING, 
-            allowNull: false 
+        model_description: {
+            type: Sequelize.STRING
         }
-    };    
+    },
+    { 
+        timestamps: false 
+    }
+);
 
-    const options = {
-        defaultScope: {
-            // exclude password hash by default
-            attributes: { exclude: ['passwordHash'] }
-        },
-        scopes: {
-            // include hash with this scope
-            withHash: { attributes: {}, }
-        }
-    };
-
-    return sequelize.define('Models', attributes, options);
-}
+module.exports = Model;

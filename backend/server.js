@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 // app.use(bodyParser.urlencoded({ extended: true })); // Parse requests of content-type: application/x-www-form-urlencoded
 
 // Routes
-// app.use('/models', require('./routes/modelsRoutes'));
+app.use('/models', require('./routes/modelsRoutes'));
 app.use('/users', require('./routes/usersRoutes'));
 
 const PORT = 5000

@@ -1,50 +1,57 @@
-// const model = require('../models2/models')
+const Model = require('../models/models');
 
-// exports.findAll = async (req, res, next) => {
-//     model.getAll()
-//         .then(models => res.json(models))
-//         .catch(next);
-//     // res.send("Find All")
-// }
+exports.create = async (req, res, next) => {
+  console.log(req.body);
 
-// exports.create = async (req, res, next) => {
+  Model.create({
+    id: req.body.id,
+    model_name: req.body.name,
+    model_description: req.body.description,
+  })
+  .then(model => res.json(model))
+  .catch(error => console.log(error));
+}
 
-//     // console.log(req)
+exports.getAll = async (req, res, next) => {
+  console.log(req.body);
 
-//     // model.create(req)
-//         // .then(() => res.json({ message: 'Model created' }))
-//         // .then(() => console.log(res))
-//         // .catch(next);
+  Model.findAll()
+  .then(models => res.json(models))
+  .catch(error => console.log(error));
+}
 
-//     // Validate request
-//     // if (!req.body) {
-//     //     res.status(400).send({
-//     //     message: "Content can not be empty!"
-//     //     });
-//     // }
+exports.findOne = async (req, res, next) => {
+  console.log(req.params);
 
-//     // console.log(req.body)
+  Model.findByPk(req.params.id)
+  .then(model => res.json(model))
+  .catch(error => console.log(error));
+}
 
-//     // const model = {
-//     //     description: "The model",
-//     //     name: req.body.name,
-//     //     price: req.body.price
-//     // };
+exports.update = async (req, res, next) => {
+  console.log(req.body);
+  console.log(req.params);
 
-//     // res.send(model)
-// }
+  Model.update({
+    model_name: req.body.name,
+    model_description: req.body.description
+  }, {
+    where: {
+      id: req.params.id
+    }
+  })
+  .then(() => res.sendStatus(200))
+  .catch(error => console.log(error));
+}
 
-// exports.update = async (req, res, next) => {
-//     res.send("Update")
-// }
+exports.delete = async (req, res, next) => {
+  console.log(req.params);
 
-// exports.findOne = async (req, res, next) => {
-//     model.getById(req.params.id)
-//         .then(model => res.json(model))
-//         .catch(next);
-//     // res.send("Find One")
-// }
-
-// exports.delete = async (req, res, next) => {
-//     res.send("Delete")
-// }
+  Model.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+  .then(() => res.sendStatus(200))
+  .catch(error => console.log(error));
+}
