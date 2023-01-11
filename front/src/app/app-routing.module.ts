@@ -17,7 +17,7 @@ export const routes: Routes = [
     component: RegisterComponent
   },
   {
-    path: 'freezbee',
+    path: 'freezbe',
     component: EditFreezbeComponent
   },
   {
